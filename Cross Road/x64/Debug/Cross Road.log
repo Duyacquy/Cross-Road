@@ -1,0 +1,3 @@
+﻿  main.cpp
+D:\Cross Road\Cross Road\main.cpp(343,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Cross Road.vcxproj -> D:\Cross Road\x64\Debug\Cross Road.exe
