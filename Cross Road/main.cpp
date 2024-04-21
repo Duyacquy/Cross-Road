@@ -365,19 +365,6 @@ int main(int argc, char* argv[]) {
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
     Mix_Music* backgroundMusic = Mix_LoadMUS("./src/sound/backgroundMusic/POL-follow-me-short.wav");
 
-    // Bật/tắt nút âm thanh
-    SDL_Surface* onMusicSurface = IMG_Load("./src/image/musicon.png");
-    SDL_Texture* onMusicTexture = SDL_CreateTextureFromSurface(GM::renderer, onMusicSurface);
-    SDL_FreeSurface(onMusicSurface);
-    SDL_Rect onMusicSrcRect = { 0, 0, 348, 348 };
-    SDL_Rect onMusicDsRect = { 450, 10, 100, 100 };
-
-    SDL_Surface* offMusicSurface = IMG_Load("./src/image/musicoff.png");
-    SDL_Texture* offMusicTexture = SDL_CreateTextureFromSurface(GM::renderer, offMusicSurface);
-    SDL_FreeSurface(offMusicSurface);
-    SDL_Rect offMusicSrcRect = { 0, 0, 348, 348 };
-    SDL_Rect offMusicDsRect = { 450, 10, 100, 100 };
-
     // Tiếng click khi ấn nút play
     Mix_Chunk* clickToPlaySound = Mix_LoadWAV("./src/sound/soundEffect/mixkit-select-click-1109.wav");
 
@@ -425,14 +412,19 @@ int main(int argc, char* argv[]) {
                             playGame = true;
                             GM::gameState = GM::GT_Play;
                         }
+                    }            
+                    if (clickToPlay.type == SDL_QUIT) {
+                        return 0;
                     }
-                    
                 }
             }
             break;
         case GM::GT_Play:
             SDL_Event e;
             while (SDL_PollEvent(&e) != 0) {
+                if (e.type == SDL_QUIT) {
+                    return 0;
+                }
                 handleInput(e);
             }
             GM::startTime = SDL_GetTicks();
@@ -517,7 +509,9 @@ int main(int argc, char* argv[]) {
                         GM::gameState = GM::GT_Play;
                     }
                 }
-
+                if (clickToPlayAgain.type == SDL_QUIT) {
+                    return 0;
+                }
             }
             break;
         }
