@@ -17,6 +17,7 @@ public:
     static int WOOD_WIDTH;
     static int Score;
     static int MaxScore;
+    static int renderSpeed;
     static Uint32 startTime;
     static Uint32 endTime;
     static Uint32 start3s;

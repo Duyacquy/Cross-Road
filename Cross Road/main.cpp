@@ -342,7 +342,7 @@ int main(int argc, char* argv[]) {
 
     srand(time(NULL));
 
-    const int SCREEN_TICK_PER_FRAME = 1000 / 70;
+    const int SCREEN_TICK_PER_FRAME = 1000 / 100;
 
     GM::start3s = SDL_GetTicks();
 
@@ -448,7 +448,7 @@ int main(int argc, char* argv[]) {
                 SDL_Delay(SCREEN_TICK_PER_FRAME - GM::endTime + GM::startTime);
             }
 
-            if (GM::end3s - GM::start3s >= 10) {
+            if (GM::end3s - GM::start3s >= GM::renderSpeed) {
                 renderMap();
                 GM::start3s = SDL_GetTicks();
             }
@@ -498,6 +498,7 @@ int main(int argc, char* argv[]) {
                         Mix_PlayChannel(-1, clickToPlaySound, 0);
                         GM::MaxScore = 0;
                         GM::Score = 0;
+                        GM::renderSpeed = 40;
                         renderMapStart();
                         player->x = GM::SCREEN_WIDTH / 2 - GM::LAND_SIZE / 2;
                         player->y = GM::SCREEN_HEIGHT - GM::LAND_SIZE * 3 + 5;
