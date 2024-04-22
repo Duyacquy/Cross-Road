@@ -22,7 +22,20 @@ void Player::moveUp() {
     if (GM::Score > GM::MaxScore) {
         GM::MaxScore = GM::Score;
         std::string scoreStr = std::to_string(GM::MaxScore);
-        if (GM::renderSpeed > 1) GM::renderSpeed--;
+        switch (GM::MaxScore) {
+            case 10:
+                GM::renderSpeed = 15;
+                break;
+            case 20:
+                GM::renderSpeed = 10;
+                break;
+            case 30:
+                GM::renderSpeed = 5;
+                break;
+            case 40:
+                GM::renderSpeed = 1;
+                break;
+        }
         scoreSurface = TTF_RenderText_Solid(titleFont, scoreStr.c_str(), scoreColor);
         scoreTexture = SDL_CreateTextureFromSurface(GM::renderer, scoreSurface);
     }
