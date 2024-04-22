@@ -56,7 +56,7 @@
               "RelativeDocumentMoniker": "Cross Road\\main.cpp",
               "ToolTip": "D:\\Cross Road\\Cross Road\\main.cpp",
               "RelativeToolTip": "Cross Road\\main.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAP4BAAARAAAA",
+              "ViewState": "AQIAAMsBAAAAAAAAAAAAAGUBAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-03-25T06:20:45.822Z",
               "EditorCaption": ""
@@ -71,8 +71,7 @@
               "RelativeToolTip": "Cross Road\\GameManager.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-03-25T16:26:55.009Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-25T16:26:55.009Z"
             },
             {
               "$type": "Document",
@@ -84,8 +83,7 @@
               "RelativeToolTip": "Cross Road\\GameManager.h",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAABMAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-03-25T06:59:16.752Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-25T06:59:16.752Z"
             },
             {
               "$type": "Document",
@@ -157,8 +155,7 @@
               "RelativeToolTip": "Cross Road\\Player.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-03T06:02:52.23Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T06:02:52.23Z"
             }
           ]
         }

@@ -355,11 +355,11 @@ int main(int argc, char* argv[]) {
 
     // Tên game lúc bắt đầu game
     TTF_Font* titleFont = TTF_OpenFont("./src/font/Bebas_Neue/BebasNeue-Regular.ttf", 48);
-    SDL_Color titleColor = { 255, 0, 0 };
-    SDL_Surface* titleSurface = TTF_RenderText_Solid(titleFont, "Crossy Road", titleColor);
+    SDL_Surface* titleSurface = IMG_Load("./src/image/title.png");
     SDL_Texture* titleTexture = SDL_CreateTextureFromSurface(GM::renderer, titleSurface);
     SDL_FreeSurface(titleSurface);
-    SDL_Rect titleDsRect = { 65, 20, 470, 180 };
+    SDL_Rect titleSrcRect = { 0, 0, 444, 90 };
+    SDL_Rect titleDsRect = { 30, 30, 550, 180 };
 
     // Phát nhạc game 
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
