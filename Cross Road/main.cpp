@@ -173,7 +173,7 @@ void renderObject() {
             bool left = rand() % 2 == 0;
             int typeTrain = rand() % 3 + 1;
             int trainSpeed = rand() % 2 + 1;
-            int trainStartX = rand() % 401 + 100;
+            int trainStartX = rand() % 401 + 110;
             for (int j = 0; j < numTrain; j++) {
                 spawnTrain(i, j, trainStartX, left, typeTrain, trainSpeed);
             }
