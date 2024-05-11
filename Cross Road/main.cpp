@@ -62,6 +62,7 @@ SDL_Rect car3SrcRect = { 0, 0, 448, 134 };
 SDL_Rect car3DsRect;
 SDL_Rect frogSrcRect = { 30, 50, 110, 120 };
 
+// Sinh map lúc bắt đầu game
 void renderMapStart() {
     for (int j = 0; j < 13; j++) {
         mapOfGame[0][j] = 1;
@@ -84,6 +85,7 @@ void renderMapStart() {
     }
 }
 
+// Sinh map liên tục phần trên màn hình
 void renderMap() {
     moved++;
     for (auto& train : trains) {
@@ -116,6 +118,7 @@ void renderMap() {
     }
 }
 
+// Di chuyển của nhân vật
 void handleInput(SDL_Event &e) {
     if (e.type == SDL_QUIT) {
         quit = true;
@@ -123,21 +126,25 @@ void handleInput(SDL_Event &e) {
     else if (e.type == SDL_KEYDOWN) {
         switch (e.key.keysym.sym) {
         case SDLK_LEFT:
+        case SDLK_a:
             player->moveLeft();
             player->isJumping = true;
             player->isPlayJumpSound = true;
             break;
         case SDLK_RIGHT:
+        case SDLK_d:
             player->moveRight();
             player->isJumping = true;
             player->isPlayJumpSound = true;
             break;
         case SDLK_UP:
+        case SDLK_w:
             player->moveUp();
             player->isJumping = true;
             player->isPlayJumpSound = true;
             break;
         case SDLK_DOWN:
+        case SDLK_s:
             player->moveDown();
             player->isJumping = true;
             player->isPlayJumpSound = true;
@@ -146,12 +153,14 @@ void handleInput(SDL_Event &e) {
     }
 }
 
+// Check va chạm với khung màn hình game
 bool checkCollisionWithWindow(int x, int y) {
     if (x < 0 || x > GM::SCREEN_WIDTH - GM::PLAYER_SIZE) return true;
     if (y > (690 - GM::PLAYER_SIZE)) return true;
     return false;
 }
 
+// Sinh ra các xe
 void spawnTrain(int y, int x, int trainStartX, bool left, int typeTrain, int trainSpeed) {
     int startY = 690 - (y + 1) * 46 + 5;
     Train* newTrain;
@@ -160,22 +169,26 @@ void spawnTrain(int y, int x, int trainStartX, bool left, int typeTrain, int tra
     trains.push_back(newTrain);
 }
 
+// Sinh ra các khúc gỗ
 void spawnWood(int y, int x, int woodStartX, bool left, int woodSpeed, int woodWidth) {
     int startY = 690 - (y + 1) * 46 + 5;
     Wood* newWood = new Wood(left ? GM::SCREEN_WIDTH - woodStartX + x * 230 : -woodWidth + woodStartX - x * 230, startY, left, woodSpeed);
     woods.push_back(newWood);
 }
 
+// Sinh ra map và các phần tử 
 void renderObject() {
     for (int i = 0; i < 17; i++) {
         if (mapOfGame[i][0] == 2) {
             int numTrain = 2;
             bool left = rand() % 2 == 0;
             int typeTrain = rand() % 3 + 1;
-            int trainSpeed = rand() % 2 + 1;
+            int trainSpeed = rand() % 12 + 1;
             int trainStartX = rand() % 401 + 110;
             for (int j = 0; j < numTrain; j++) {
-                spawnTrain(i, j, trainStartX, left, typeTrain, trainSpeed);
+                if (trainSpeed >= 1 && trainSpeed <= 5) spawnTrain(i, j, trainStartX, left, typeTrain, 1);
+                else if (trainSpeed >= 5 && trainSpeed <= 10) spawnTrain(i, j, trainStartX, left, typeTrain, 2);
+                else spawnTrain(i, j, trainStartX, left, typeTrain, 3);
             }
             mapOfGame[i][0] += 10;
         }
@@ -200,6 +213,7 @@ void renderObject() {
     }
 }
 
+// Cập nhật
 void update() {
     player->jumpFrameTimeCounter += 1000.0 / 70.0;
 
@@ -211,6 +225,7 @@ void update() {
     }
 }
 
+// In ra map và các phần tử ra màn hình và check va chạm của chúng
 void render() {
     if (!grassTexture) {
         grassTexture = SDL_CreateTextureFromSurface(GM::renderer, grassSurface);
@@ -254,6 +269,7 @@ void render() {
                 SDL_Rect riverDsRect = { j * 46, 690 - (i + 1) * 46 + moved, GM::LAND_SIZE, GM::LAND_SIZE };
                 SDL_RenderCopy(GM::renderer, riverTexture, &riverSrcRect, &riverDsRect);
 
+                // Check giữa ếch và sông
                 if (SDL_HasIntersection(&frogDsRect, &riverDsRect)) {
                     bool onWood = false;
                     for (auto& wood : woods) {
@@ -276,7 +292,7 @@ void render() {
         }
     }
 
-    // Vẽ các đoàn tàu
+    // Vẽ các đoàn tàu và check va chạm
     for (auto& train : trains) {
         switch(train->typeCar) {
             case 1:
@@ -315,6 +331,7 @@ void render() {
         }
     }
 
+    // Check va chạm giữa ếch và gỗ
     for (auto& wood : woods) {
         SDL_Rect woodDsRect = { wood->x, wood->y, GM::WOOD_WIDTH, GM::WOOD_HEIGHT };
         SDL_RenderCopy(GM::renderer, woodTexture, &woodSrcRect, &woodDsRect);
@@ -400,6 +417,7 @@ int main(int argc, char* argv[]) {
             SDL_RenderPresent(GM::renderer);
             Mix_PlayMusic(backgroundMusic, -1);
             while (!playGame) {
+                // Check click vào nút bắt đầu
                 SDL_Event clickToPlay;
                 while (SDL_PollEvent(&clickToPlay) != 0) {
                     if (clickToPlay.type == SDL_MOUSEBUTTONDOWN) {
@@ -440,6 +458,7 @@ int main(int argc, char* argv[]) {
                 SDL_Delay(SCREEN_TICK_PER_FRAME - GM::endTime + GM::startTime);
             }
 
+            // Kiểm soát tốc độ chạy xuống của map
             if (GM::end3s - GM::start3s >= GM::renderSpeed) {
                 renderMap();
                 GM::start3s = SDL_GetTicks();
@@ -480,7 +499,8 @@ int main(int argc, char* argv[]) {
             SDL_RenderCopy(GM::renderer, scoreEndGameTexture, nullptr, &scoreEndGameDsRect);
             SDL_RenderCopy(GM::renderer, playAgainTexture, &playAgainSrcRect, &playAgainDsRect);
             SDL_RenderPresent(GM::renderer);
-
+            
+            // Check click vào nút chơi lại
             SDL_Event clickToPlayAgain;
             while (SDL_PollEvent(&clickToPlayAgain) != 0) {
                 if (clickToPlayAgain.type == SDL_MOUSEBUTTONDOWN) {

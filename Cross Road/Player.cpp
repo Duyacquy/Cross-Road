@@ -1,4 +1,4 @@
-#include "Player.h"
+﻿#include "Player.h"
 
 Player::Player() {
     x = GM::SCREEN_WIDTH / 2 - GM::LAND_SIZE / 2;
@@ -68,6 +68,7 @@ void Player::render() {
         scoreTexture = SDL_CreateTextureFromSurface(GM::renderer, scoreSurface);
     }
 
+    // Chuyển động nhảy của ếch
     if (isJumping && jumpFrameTimeCounter >= jumpFrameTime) {
         if (isPlayJumpSound) {
             Mix_PlayChannel(-1, jumpSound, 0);
