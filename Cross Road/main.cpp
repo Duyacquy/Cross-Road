@@ -540,7 +540,13 @@ int main(int argc, char* argv[]) {
     Mix_FreeChunk(clickToPlaySound);
     SDL_FreeSurface(riverSurface);
     SDL_FreeSurface(woodSurface);
+    SDL_FreeSurface(car1Surface);
     SDL_FreeSurface(car2Surface);
+    SDL_FreeSurface(car3Surface);
+    SDL_FreeSurface(endGameSurface);
+    SDL_FreeSurface(grassSurface);
+    SDL_FreeSurface(roadSurface);
+    SDL_FreeSurface(playAgainSurface);
     GM::closeSDL();
     return 0;
 }
