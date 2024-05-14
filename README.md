@@ -6,7 +6,7 @@
 ## Tính năng:
 - **Điều khiển đơn giản**: Sử dụng các phím mũi tên và các phím WASD để di chuyển chú ếch.
 - **Chướng ngại vật**: Xe cộ, sông nước sẽ xuất hiện một cách ngẫu nhiên với tốc độ khác nhau.
-- **Màn hình trò chơi di chuyển liên tục**: Màn hình sẽ tự động di chuyển xuống với tốc độ tăng theo số điểm của người chơi, tăng độ khó của trò chơi.
+- **Màn hình trò chơi di chuyển liên tục**: Màn hình sẽ tự động di chuyển xuống với tốc độ tăng theo số điểm của người chơi.
 - **Điểm số**: Điểm số của bạn sẽ tăng dần theo mỗi bước mà bạn giúp chú ếch đi được lên trên (Tất nhiên không tính các bước đi lại hàng bạn đã đi rồi).
   
  ## Yêu cầu hệ thống
@@ -29,7 +29,7 @@
 ## Hướng dẫn chơi
 - **Di chuyển**: Sử dụng các phím mũi tên và các phím WASD để điều khiển chú ếch. Nếu bạn sử dụng WASD, hãy bật chế độ tiếng anh cho bàn phím để có trải nghiệm tốt nhất.
 - **Mục tiêu**: Đưa chú ếch băng qua đường, các khúc gỗ di chuyển liên tục và vượt qua các chướng ngại vật mà không bị đâm phải để kiếm số điểm cao nhất.
-- **Thách thức**: Màn hình sẽ dần dần di chuyển xuống dưới, bạn cần nhanh chóng điều khiển chú ếch để tránh bị chạm vào hai bên và đáy màn hình.
+- **Thách thức**: Màn hình sẽ dần dần di chuyển xuống dưới, bạn cần nhanh chóng điều khiển chú ếch để tránh bị chạm vào hai bên và đáy màn hình. Tốc độ di chuyển của màn hình sẽ tăng theo điểm của người chơi. Bên cạnh đó, khi bạn đạt số điểm nhất định sẽ xuất hiện xe với tốc độ siêu nhanh gây khó khăn cho người chơi.  
 
 ## Tài liệu tham khảo
 - Học SDL2 thông qua Lazy Foo: [LazyFoo](https://lazyfoo.net/tutorials/SDL/index.php)
