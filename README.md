@@ -18,13 +18,14 @@
 1. Vào thư mục bất kì bạn muốn lưu, trên thanh địa chỉ gõ **cmd** rồi ấn **Enter**
   
 2. **Clone repository**:
-    Nhập ```bash
+   Nhập
+    ```bash
     git clone https://github.com/Duyacquy/Cross-Road.git
     ```
-3. **Mở dự án với Visual Studio 2022**:
+4. **Mở dự án với Visual Studio 2022**:
     - Vào thư mục Cross-Road vừa được tải về.
     - Chọn tệp `Cross Road.sln`.
-4. **Chạy trò chơi**:
+5. **Chạy trò chơi**:
     - Sau khi mở tệp `Cross Road.sln` trong Visual Studio, nhấn **Ctrl + F5** để biên dịch và chạy trò chơi mà không cần debug.
 
 ## Hướng dẫn chơi
