@@ -29,7 +29,7 @@ Crossy Road là một trò chơi thú vị nơi bạn sẽ điều khiển một
 
 ## Hướng dẫn chơi
 - **Di chuyển**: Sử dụng các phím mũi tên và các phím WASD để điều khiển chú ếch. Nếu bạn sử dụng WASD, hãy bật chế độ tiếng anh cho bàn phím để có trải nghiệm tốt nhất.
-- **Mục tiêu**: Đưa chú ếch băng qua đường và các khúc gỗ và vượt qua các chướng ngại vật mà không bị đâm phải để kiếm số điểm cao nhất.
+- **Mục tiêu**: Đưa chú ếch băng qua đường, các khúc gỗ di chuyển liên tục và vượt qua các chướng ngại vật mà không bị đâm phải để kiếm số điểm cao nhất.
 - **Thách thức**: Màn hình sẽ dần dần di chuyển xuống dưới, bạn cần nhanh chóng điều khiển chú ếch để tránh bị chạm vào hai bên và đáy màn hình.
 
 ## Tài liệu tham khảo
