@@ -11,21 +11,19 @@
   
  ## Yêu cầu hệ thống
 - **Hệ điều hành**: Windows
-- **C++ Compiler**: Hỗ trợ C++11 trở lên
-- **Thư viện**: SDL2
+- ****: Visual Studio
 
 ## Hướng dẫn cài đặt
-1. Vào thư mục bất kì bạn muốn lưu, trên thanh địa chỉ gõ **cmd** rồi ấn **Enter**
-  
+1. Mở **Windows Explorer** rồi vào thư mục bất kì bạn muốn lưu, ấn vào thanh địa chỉ gõ **cmd** rồi ấn **Enter**.
 2. **Clone repository**:
-   Nhập
+    Trên **cmd** chạy lệnh sau:
     ```bash
     git clone https://github.com/Duyacquy/Cross-Road.git
     ```
-4. **Mở dự án với Visual Studio 2022**:
+3. **Mở dự án với Visual Studio 2022**:
     - Vào thư mục Cross-Road vừa được tải về.
     - Chọn tệp `Cross Road.sln`.
-5. **Chạy trò chơi**:
+4. **Chạy trò chơi**:
     - Sau khi mở tệp `Cross Road.sln` trong Visual Studio, nhấn **Ctrl + F5** để biên dịch và chạy trò chơi mà không cần debug.
 
 ## Hướng dẫn chơi
