@@ -5,26 +5,25 @@
 
 ## Tính năng:
 - **Điều khiển đơn giản**: Sử dụng các phím mũi tên và các phím WASD để di chuyển chú ếch.
-- **Chướng ngại vật**: Xe cộ, sông nước sẽ xuất hiện một cách ngẫu nhiên với tốc độ khác nhau trên đường.
+- **Chướng ngại vật**: Xe cộ, sông nước sẽ xuất hiện một cách ngẫu nhiên với tốc độ khác nhau.
 - **Màn hình trò chơi di chuyển liên tục**: Màn hình sẽ tự động di chuyển xuống với tốc độ tăng theo số điểm của người chơi, tăng độ khó của trò chơi.
 - **Điểm số**: Điểm số của bạn sẽ tăng dần theo mỗi bước mà bạn giúp chú ếch đi được lên trên (Tất nhiên không tính các bước đi lại hàng bạn đã đi rồi).
   
  ## Yêu cầu hệ thống
 - **Hệ điều hành**: Windows
-- **C++ Compiler**: Hỗ trợ C++11 trở lên
-- **Thư viện**: SDL2
+- **IDE**: Visual Studio 2022
 
 ## Hướng dẫn cài đặt
-1. **Clone repository**:
+1. Mở **Windows Explorer** rồi vào thư mục bất kì bạn muốn lưu, ấn vào thanh địa chỉ gõ **cmd** rồi ấn **Enter**.
+2. **Clone repository**:
+    Trên **cmd** chạy lệnh sau:
     ```bash
-    git clone https://github.com/yourusername/Cross-Road.git
-    cd Cross-Road
+    git clone https://github.com/Duyacquy/Cross-Road.git
     ```
-2. **Mở dự án với Visual Studio 2022**:
-    - Mở Visual Studio 2022.
-    - Chọn **File** > **Open** > **Project/Solution**.
-    - Điều hướng đến thư mục `Cross-Road` mà bạn đã clone về và chọn tệp `Cross Road.sln`.
-3. **Chạy trò chơi**:
+3. **Mở dự án với Visual Studio 2022**:
+    - Vào thư mục Cross-Road vừa được tải về.
+    - Chọn tệp `Cross Road.sln`.
+4. **Chạy trò chơi**:
     - Sau khi mở tệp `Cross Road.sln` trong Visual Studio, nhấn **Ctrl + F5** để biên dịch và chạy trò chơi mà không cần debug.
 
 ## Hướng dẫn chơi
