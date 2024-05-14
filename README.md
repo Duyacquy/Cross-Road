@@ -14,9 +14,9 @@
 - **IDE**: Visual Studio 2022
 
 ## Hướng dẫn cài đặt
-1. Mở **Windows Explorer** rồi vào thư mục bất kì bạn muốn lưu, ấn vào thanh địa chỉ gõ **cmd** rồi ấn **Enter**.
+1. Mở **File Explorer** rồi vào thư mục bất kì mà bạn muốn lưu game, ấn vào thanh địa chỉ gõ **cmd** rồi ấn **Enter**.
 2. **Clone repository**:
-    Trên **cmd** chạy lệnh sau:
+    Trong cửa sổ **cmd** chạy lệnh sau:
     ```bash
     git clone https://github.com/Duyacquy/Cross-Road.git
     ```
