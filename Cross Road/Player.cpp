@@ -1,4 +1,5 @@
 ﻿#include "Player.h"
+#include <iostream>
 
 Player::Player() {
     x = GM::SCREEN_WIDTH / 2 - GM::LAND_SIZE / 2;
@@ -34,6 +35,9 @@ void Player::moveUp() {
                 break;
             case 40:
                 GM::renderSpeed = 1;
+                break;
+            case 80:
+                GM::fastCar = true;
                 break;
         }
         scoreSurface = TTF_RenderText_Solid(titleFont, scoreStr.c_str(), scoreColor);

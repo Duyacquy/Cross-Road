@@ -11,6 +11,7 @@ int GM::WOOD_WIDTH = 100;
 int GM::Score = 0;
 int GM::MaxScore = 0;
 int GM::renderSpeed = 20;
+bool GM::fastCar = false;
 Uint32 GM::startTime = 0;
 Uint32 GM::endTime = 0;
 Uint32 GM::start3s = 0;

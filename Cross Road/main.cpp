@@ -37,6 +37,7 @@ SDL_Surface* woodSurface = IMG_Load("./src/image/wood.png");
 SDL_Surface* car1Surface = IMG_Load("./src/image/car1.png");
 SDL_Surface* car2Surface = IMG_Load("./src/image/car2.png");
 SDL_Surface* car3Surface = IMG_Load("./src/image/car3.png");
+SDL_Surface* backgroundGrassSurface = IMG_Load("./src/image/backgroundEnd.png");
 SDL_Surface* playAgainSurface = IMG_Load("./src/image/playagain.png");
 
 SDL_Texture* endGameTexture;
@@ -47,6 +48,7 @@ SDL_Texture* woodTexture;
 SDL_Texture* car1Texture;
 SDL_Texture* car2Texture;
 SDL_Texture* car3Texture;
+SDL_Texture* backgroundGrassTexture;
 SDL_Texture* playAgainTexture;
 
 SDL_Rect scoreDsRect = { 10, 10, 50, 70 };
@@ -181,14 +183,17 @@ void renderObject() {
     for (int i = 0; i < 17; i++) {
         if (mapOfGame[i][0] == 2) {
             int numTrain = 2;
+            int trainSpeed;
             bool left = rand() % 2 == 0;
             int typeTrain = rand() % 3 + 1;
-            int trainSpeed = rand() % 12 + 1;
+            if (!GM::fastCar) trainSpeed = rand() % 12 + 1;
+            else trainSpeed = rand() % 14 + 1;
             int trainStartX = rand() % 401 + 110;
             for (int j = 0; j < numTrain; j++) {
                 if (trainSpeed >= 1 && trainSpeed <= 5) spawnTrain(i, j, trainStartX, left, typeTrain, 1);
-                else if (trainSpeed >= 5 && trainSpeed <= 10) spawnTrain(i, j, trainStartX, left, typeTrain, 2);
-                else spawnTrain(i, j, trainStartX, left, typeTrain, 3);
+                else if (trainSpeed >= 6 && trainSpeed <= 10) spawnTrain(i, j, trainStartX, left, typeTrain, 2);
+                else if (trainSpeed >= 11 && trainSpeed <= 12) spawnTrain(i, j, trainStartX, left, typeTrain, 3);
+                else spawnTrain(i, j, trainStartX, left, typeTrain, 4);
             }
             mapOfGame[i][0] += 10;
         }
@@ -203,10 +208,12 @@ void renderObject() {
                 left = false;
                 countDirection = 0;
             }
-            int woodSpeed = rand() % 2 + 1;
+            int woodSpeed = rand() % 12 + 1;
             int woodStartX = rand() % 301 + 100;
             for (int j = 0; j < numWood; j++) {
-                spawnWood(i, j, woodStartX, left, woodSpeed, GM::WOOD_WIDTH);
+                if (woodSpeed >= 1 && woodSpeed <= 5) spawnWood(i, j, woodStartX, left, 1, GM::WOOD_WIDTH);
+                else if (woodSpeed >= 6 && woodSpeed <= 10) spawnWood(i, j, woodStartX, left, 2, GM::WOOD_WIDTH);
+                else spawnWood(i, j, woodStartX, left, 3, GM::WOOD_WIDTH);
             }
             mapOfGame[i][0] += 10;
         }
@@ -355,6 +362,7 @@ void render() {
 }
 
 int main(int argc, char* argv[]) {
+
     GM::initSDL();
 
     srand(time(NULL));
@@ -385,8 +393,11 @@ int main(int argc, char* argv[]) {
     // Tiếng click khi ấn nút play
     Mix_Chunk* clickToPlaySound = Mix_LoadWAV("./src/sound/soundEffect/mixkit-select-click-1109.wav");
 
+    // Hiện background lúc kết thúc game
+    SDL_Rect backgroundGrassSrcRect = { 0, 0, 4167, 4167 };
+    SDL_Rect backgroundGrassDsRect = { 0, 0, 598, 690 };
+
     // Hiện ảnh lúc hết game
-    SDL_Rect backgroundRect = { 0, 0, 598, 690 };
     SDL_Rect endGameSrcRect = { 0, 0, 1328, 1088 };
     SDL_Rect endGameDsRect = { 75, 145, 450, 400 };
 
@@ -465,13 +476,13 @@ int main(int argc, char* argv[]) {
             }
             break;
         case GM::GT_End:
+            if (!backgroundGrassTexture) backgroundGrassTexture = SDL_CreateTextureFromSurface(GM::renderer, backgroundGrassSurface);
             if (!endGameTexture) endGameTexture = SDL_CreateTextureFromSurface(GM::renderer, endGameSurface);
             if (!playAgainTexture) playAgainTexture = SDL_CreateTextureFromSurface(GM::renderer, playAgainSurface);
             if (scoreEndGameTexture == nullptr) {
-                SDL_SetRenderDrawColor(GM::renderer, 192, 192, 192, 50);
-                SDL_RenderFillRect(GM::renderer, &backgroundRect);
                 std::string scoreStr = std::to_string(GM::MaxScore);
                 std::string scoreEndGameStr = "Score: " + scoreStr;
+                std::string highScoreStr = "HIGH SCORE";
                 switch ((int)scoreStr.length()) {
                     case 1:
                         scoreEndGameDsRect = { 226, 305, 150, 60 };
@@ -493,7 +504,7 @@ int main(int argc, char* argv[]) {
                 scoreEndGameSurface = TTF_RenderText_Solid(scoreEndGameFont, scoreEndGameStr.c_str(), scoreEndGameColor);
                 scoreEndGameTexture = SDL_CreateTextureFromSurface(GM::renderer, scoreEndGameSurface);
             }
-
+            SDL_RenderCopy(GM::renderer, backgroundGrassTexture, &backgroundGrassSrcRect, &backgroundGrassDsRect);
             SDL_RenderCopy(GM::renderer, endGameTexture, &endGameSrcRect, &endGameDsRect);
             SDL_RenderCopy(GM::renderer, gameOverTextTexture, nullptr, &gameOverTextDsRect);
             SDL_RenderCopy(GM::renderer, scoreEndGameTexture, nullptr, &scoreEndGameDsRect);
@@ -511,6 +522,7 @@ int main(int argc, char* argv[]) {
                         GM::MaxScore = 0;
                         GM::Score = 0;
                         GM::renderSpeed = 40;
+                        GM::fastCar = false;
                         renderMapStart();
                         player->x = GM::SCREEN_WIDTH / 2 - GM::LAND_SIZE / 2;
                         player->y = GM::SCREEN_HEIGHT - GM::LAND_SIZE * 3 + 5;
@@ -546,6 +558,7 @@ int main(int argc, char* argv[]) {
     SDL_FreeSurface(endGameSurface);
     SDL_FreeSurface(grassSurface);
     SDL_FreeSurface(roadSurface);
+    SDL_FreeSurface(backgroundGrassSurface);
     SDL_FreeSurface(playAgainSurface);
     GM::closeSDL();
     return 0;
