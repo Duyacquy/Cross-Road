@@ -4,10 +4,10 @@
 Crossy Road là một trò chơi thú vị nơi bạn sẽ điều khiển một chú ếch vượt qua đường, băng qua các khúc gỗ và né các chướng ngại vật như xe cộ, sông nước. Trong trò chơi này, màn hình trò chơi sẽ tự động di chuyển xuống dưới, tạo thêm thách thức cho người chơi khi phải tránh đưa chú ếch chạm vào hai bên và đáy của màn hình.
 
 ## Tính năng:
--**Điều khiển đơn giản**: Sử dụng các phím mũi tên và các phím WASD để di chuyển chú ếch.
--**Chướng ngại vật**: Xe cộ, sông nước sẽ xuất hiện một cách ngẫu nhiên với tốc độ khác nhau trên đường.
--**Màn hình trò chơi di chuyển liên tục**: Màn hình sẽ tự động di chuyển xuống với tốc độ tăng theo số điểm của người chơi, tăng độ khó của trò chơi.
--**Điểm số**: Điểm số của bạn sẽ tăng dần theo mỗi bước mà bạn giúp chú ếch đi được lên trên (Tất nhiên không tính các bước đi lại hàng bạn đã đi rồi).
+- **Điều khiển đơn giản**: Sử dụng các phím mũi tên và các phím WASD để di chuyển chú ếch.
+- **Chướng ngại vật**: Xe cộ, sông nước sẽ xuất hiện một cách ngẫu nhiên với tốc độ khác nhau trên đường.
+- **Màn hình trò chơi di chuyển liên tục**: Màn hình sẽ tự động di chuyển xuống với tốc độ tăng theo số điểm của người chơi, tăng độ khó của trò chơi.
+- **Điểm số**: Điểm số của bạn sẽ tăng dần theo mỗi bước mà bạn giúp chú ếch đi được lên trên (Tất nhiên không tính các bước đi lại hàng bạn đã đi rồi).
   
  ## Yêu cầu hệ thống
 - **Hệ điều hành**: Windows
