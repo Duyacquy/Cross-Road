@@ -1,7 +1,7 @@
 # CROSSY ROAD
 
 ## Giới thiệu: 
-Crossy Road là một trò chơi thú vị nơi bạn sẽ điều khiển một chú ếch vượt qua đường, băng qua các khúc gỗ và né các chướng ngại vật như xe cộ, sông nước. Trong trò chơi này, màn hình trò chơi sẽ tự động di chuyển xuống dưới, tạo thêm thách thức cho người chơi khi phải tránh đưa chú ếch chạm vào hai bên và đáy của màn hình.
+**Crossy Road** là một trò chơi thú vị nơi bạn sẽ điều khiển một chú ếch vượt qua đường, băng qua các khúc gỗ và né các chướng ngại vật như xe cộ, sông nước. Trong trò chơi này, màn hình trò chơi sẽ tự động di chuyển xuống dưới, tạo thêm thách thức cho người chơi khi phải tránh đưa chú ếch chạm vào hai bên và đáy của màn hình.
 
 ## Tính năng:
 - **Điều khiển đơn giản**: Sử dụng các phím mũi tên và các phím WASD để di chuyển chú ếch.
