@@ -1,6 +1,9 @@
-﻿  Player.cpp
+﻿  GameManager.cpp
   main.cpp
-D:\Cross Road\Cross Road\main.cpp(368,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\Cross Road\Cross Road\main.cpp(473,41): warning C4018: '>=': signed/unsigned mismatch
+D:\My project\Cross Road\Cross Road\main.cpp(368,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\My project\Cross Road\Cross Road\main.cpp(473,41): warning C4018: '>=': signed/unsigned mismatch
+  Player.cpp
+  Train.cpp
+  Wood.cpp
   Generating Code...
-  Cross Road.vcxproj -> D:\Cross Road\x64\Debug\Cross Road.exe
+  Cross Road.vcxproj -> D:\My project\Cross Road\x64\Debug\Cross Road.exe
