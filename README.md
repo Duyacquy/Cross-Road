@@ -1,4 +1,8 @@
-# CROSSY ROAD
+# CROSSY ROAD - Classic Arcade Remake
+
+[![C++](https://img.shields.io/badge/C%2B%2B-17-00599C.svg?style=flat-square&logo=cplusplus&logoColor=white)](https://isocpp.org/)
+[![SDL2](https://img.shields.io/badge/SDL2-2.0-blue.svg?style=flat-square)](https://www.libsdl.org/)
+[![Visual Studio 2022](https://img.shields.io/badge/Visual_Studio-2022-5C2D91.svg?style=flat-square&logo=visualstudio&logoColor=white)](https://visualstudio.microsoft.com/)
 
 ## Giới thiệu: 
 **Crossy Road** là một trò chơi thú vị nơi bạn sẽ điều khiển một chú ếch vượt qua đường, băng qua các khúc gỗ và né các chướng ngại vật như xe cộ, sông nước. Trong trò chơi này, màn hình trò chơi sẽ tự động di chuyển xuống dưới, tạo thêm thách thức cho người chơi khi phải tránh đưa chú ếch chạm vào hai bên và đáy của màn hình.
